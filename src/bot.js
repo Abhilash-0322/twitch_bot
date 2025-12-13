@@ -424,5 +424,15 @@ process.on('SIGTERM', async () => {
   process.exit(0);
 });
 
+const http = require('http');
+const PORT = process.env.PORT || 8080;
+
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Twitch bot is running\n');
+}).listen(PORT, () => {
+  logger.info(`Health server listening on port ${PORT}`);
+});
+
 // Start the bot
 bot.start();
