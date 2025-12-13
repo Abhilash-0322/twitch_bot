@@ -1,0 +1,20 @@
+{
+  "responseCooldown": 30,
+  "maxMessagesPerMinute": 20,
+  "autoModeration": {
+    "enabled": true,
+    "banSpam": false,
+    "timeoutDuration": 600
+  },
+  "responseSettings": {
+    "useMentions": true,
+    "randomizeResponses": true,
+    "minMessageLength": 3
+  },
+  "allowedUsers": [],
+  "ignoredUsers": [
+    "nightbot",
+    "streamelements",
+    "streamlabs"
+  ]
+}

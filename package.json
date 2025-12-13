@@ -1,0 +1,27 @@
+{
+  "name": "twitch-auto-reply-bot",
+  "version": "1.0.0",
+  "description": "A Twitch bot that automatically replies to users based on custom guidelines",
+  "main": "src/bot.js",
+  "scripts": {
+    "start": "node src/bot.js",
+    "dev": "node --watch src/bot.js",
+    "test": "node src/test-connection.js",
+    "generate-token": "node scripts/generate-token.js"
+  },
+  "keywords": [
+    "twitch",
+    "bot",
+    "chat",
+    "auto-reply",
+    "tmi.js"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "groq-sdk": "^0.37.0",
+    "tmi.js": "^1.8.5",
+    "winston": "^3.11.0"
+  }
+}

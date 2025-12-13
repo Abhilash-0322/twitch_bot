@@ -1,0 +1,171 @@
+{
+  "guidelines": {
+    "description": "Define automatic response rules based on keywords, patterns, or user behavior",
+    "rules": [
+      {
+        "id": "greeting",
+        "enabled": true,
+        "triggers": ["hi", "hello", "hey", "sup", "yo"],
+        "triggerType": "contains",
+        "responses": [
+          "Hey there! Welcome to the stream! 👋",
+          "Hello! Thanks for joining us! 😊",
+          "Hi! Great to see you here! 🎮"
+        ],
+        "cooldown": 60,
+        "description": "Greets users who say hello"
+      },
+      {
+        "id": "first_time_viewer",
+        "enabled": true,
+        "triggers": ["first time", "new here", "just found"],
+        "triggerType": "contains",
+        "responses": [
+          "Welcome to the community! Feel free to ask questions anytime! 🌟",
+          "Great to have you here! Make yourself at home! 🏠"
+        ],
+        "cooldown": 300,
+        "description": "Welcomes first-time viewers"
+      },
+      {
+        "id": "question_mark",
+        "enabled": true,
+        "triggers": ["?"],
+        "triggerType": "endsWith",
+        "responses": [
+          "Great question! Let me check that for you.",
+          "Hmm, let me think about that one!"
+        ],
+        "cooldown": 30,
+        "probability": 0.3,
+        "description": "Occasionally responds to questions"
+      },
+      {
+        "id": "game_question",
+        "enabled": true,
+        "triggers": ["what game", "which game", "game is this"],
+        "triggerType": "contains",
+        "responses": [
+          "Check the title/description for the game info! 🎮",
+          "The game info is in the stream title! 📝"
+        ],
+        "cooldown": 120,
+        "description": "Responds to game-related questions"
+      },
+      {
+        "id": "schedule",
+        "enabled": true,
+        "triggers": ["schedule", "when stream", "stream time", "next stream"],
+        "triggerType": "contains",
+        "responses": [
+          "Check the schedule panel below the stream! 📅",
+          "Streaming schedule is available in the About section! ⏰"
+        ],
+        "cooldown": 180,
+        "description": "Responds to schedule inquiries"
+      },
+      {
+        "id": "social_media",
+        "enabled": true,
+        "triggers": ["twitter", "instagram", "discord", "social"],
+        "triggerType": "contains",
+        "responses": [
+          "All social links are in the panels below! 🔗",
+          "Check out the links section for all socials! 📱"
+        ],
+        "cooldown": 120,
+        "description": "Directs to social media links"
+      },
+      {
+        "id": "support",
+        "enabled": true,
+        "triggers": ["how to sub", "how to donate", "how support"],
+        "triggerType": "contains",
+        "responses": [
+          "Thank you for wanting to support! Check the buttons below the stream! 💜",
+          "Your support means a lot! Buttons are below the video! 🙏"
+        ],
+        "cooldown": 180,
+        "description": "Responds to support questions"
+      },
+      {
+        "id": "positive_vibes",
+        "enabled": true,
+        "triggers": ["love this", "great stream", "awesome", "amazing"],
+        "triggerType": "contains",
+        "responses": [
+          "Thank you so much! You're awesome! 💜",
+          "We appreciate you! Thanks for the positive vibes! ✨",
+          "You're the best! Thank you! 🌟"
+        ],
+        "cooldown": 90,
+        "probability": 0.5,
+        "description": "Responds to positive messages"
+      },
+      {
+        "id": "lurk",
+        "enabled": true,
+        "triggers": ["lurk", "lurking"],
+        "triggerType": "contains",
+        "responses": [
+          "Thanks for the lurk! Enjoy! 👻",
+          "Happy lurking! 😴"
+        ],
+        "cooldown": 300,
+        "description": "Acknowledges lurkers"
+      },
+      {
+        "id": "emote_spam",
+        "enabled": true,
+        "triggers": ["Kappa", "PogChamp", "LUL", "KEKW"],
+        "triggerType": "contains",
+        "responses": [],
+        "cooldown": 0,
+        "probability": 0,
+        "description": "Ignores emote spam (no response)"
+      }
+    ]
+  },
+  "commands": {
+    "description": "Custom chat commands users can trigger",
+    "enabled": true,
+    "prefix": "!",
+    "list": [
+      {
+        "name": "help",
+        "enabled": true,
+        "response": "Available commands: !help, !discord, !socials, !schedule, !game",
+        "cooldown": 30,
+        "modOnly": false
+      },
+      {
+        "name": "discord",
+        "enabled": true,
+        "response": "Join our Discord community: [Add your Discord link here]",
+        "cooldown": 60,
+        "modOnly": false
+      },
+      {
+        "name": "socials",
+        "enabled": true,
+        "response": "Follow us: Twitter @[handle] | Instagram @[handle]",
+        "cooldown": 60,
+        "modOnly": false
+      },
+      {
+        "name": "schedule",
+        "enabled": true,
+        "response": "Stream schedule: [Add your schedule here]",
+        "cooldown": 60,
+        "modOnly": false
+      },
+      {
+        "name": "game",
+        "enabled": true,
+        "response": "Currently playing: Check the stream title! 🎮",
+        "cooldown": 30,
+        "modOnly": false
+      }
+    ]
+  }
+}
