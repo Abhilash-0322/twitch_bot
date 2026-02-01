@@ -329,22 +329,10 @@ Generate ONE unique welcome message NOW (just the message, nothing else):`;
       return message;
       
     } catch (error) {
-      console.error('===== GROQ ERROR DETAILS =====');
-      console.error('Error object:', error);
-      console.error('Error type:', typeof error);
-      console.error('Error constructor:', error?.constructor?.name);
-      logger.error('Error generating AI welcome message:');
-      logger.error('Full error:', error);
-      if (error && error.message) {
-        logger.error('Message:', error.message);
-      }
-      if (error && error.response) {
-        logger.error('API Response:', JSON.stringify(error.response.data, null, 2));
-      }
-      if (error && error.status) {
-        logger.error('HTTP Status:', error.status);
-      }
-      console.error('===== END ERROR DETAILS =====');
+      // Log error in single line for Azure visibility
+      const errorMsg = error?.message || error?.toString() || 'Unknown error';
+      const errorStatus = error?.status || error?.response?.status || 'N/A';
+      logger.error(`Groq API Error: ${errorMsg} | Status: ${errorStatus}`);
       
       // Fallback to simple random messages (streamer perspective)
       const fallbacks = [
