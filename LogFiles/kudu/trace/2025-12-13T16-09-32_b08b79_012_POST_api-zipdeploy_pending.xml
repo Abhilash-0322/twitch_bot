@@ -1,0 +1,26 @@
+<step title="Incoming Request" date="2025-12-13T16:09:32.137" instance="b08b79" url="/api/zipdeploy?isAsync=true" method="POST" type="request" pid="831,1,22" Accept="*/*" Host="streamhelper971.scm.azurewebsites.net" User-Agent="AZURECLI/2.81.0 (DEB)" Accept-Encoding="gzip, deflate" Authorization="Bea..." Cache-Control="no-cache" Content-Type="application/octet-stream" Content-Length="73529" x-ms-client-request-id="15067c1e-d83e-11f0-931f-e00af6c3059b" x-ms-artifact-checksum="f4e9bb10e783a972c4d6d55b67ea01d4e291b469f7ed4455a4e3625f56f7157d" X-ARR-LOG-ID="15067c1e-d83e-11f0-931f-e00af6c3059b" CLIENT-IP="106.205.190.52:26472" X-SITE-DEPLOYMENT-ID="streamhelper971" WAS-DEFAULT-HOSTNAME="streamhelper971.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true" X-Client-IP="106.205.190.52" X-Client-Port="26472" >
+  <step title="Cleanup Xml Logs" date="2025-12-13T16:09:32.152" /><!-- duration: 10ms -->
+  <step title="ZipPushDeploy" date="2025-12-13T16:09:32.203" >
+    <step title="ZipDeploy. Extract zip. Remote build." date="2025-12-13T16:09:32.219" /><!-- duration: 5ms -->
+    <step title="None repository commit" date="2025-12-13T16:09:32.235" >
+      <step title="Commit id: fd9f07bd-1d8b-4c65-86a2-3a13e6bc55b0" date="2025-12-13T16:09:32.245" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 5ms -->
+    </step><!-- duration: 21ms -->
+    <step title="Starting PushDeployAsync" date="2025-12-13T16:09:32.264" /><!-- duration: 6ms -->
+    <step title="Removing node_modules symlink" date="2025-12-13T16:09:32.290" >
+      <step title="Writing artifact to /tmp/zipdeploy/29db7892-1e37-4016-b5a2-b960e1e9a284.zip" date="2025-12-13T16:09:32.351" >
+        <step title="Writing multipart request body to /tmp/zipdeploy/29db7892-1e37-4016-b5a2-b960e1e9a284.zip" date="2025-12-13T16:09:32.357" /><!-- duration: 8ms -->
+      </step><!-- duration: 45ms -->
+      <step title="Removing previous build artifact&apos;s manifest file" date="2025-12-13T16:09:32.404" >
+        <step title="None repository commit" date="2025-12-13T16:09:32.421" >
+          <step title="Commit id: fd9f07bd-1d8b-4c65-86a2-3a13e6bc55b0" date="2025-12-13T16:09:32.427" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 7ms -->
+        </step><!-- duration: 18ms -->
+        <step title="Start deployment in the background" date="2025-12-13T16:09:32.448" >
+          <step title="None repository commit" date="2025-12-13T16:09:32.465" >
+            <step title="Commit id: fd9f07bd-1d8b-4c65-86a2-3a13e6bc55b0" date="2025-12-13T16:09:32.471" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 6ms -->
+          </step><!-- duration: 18ms -->
+          <step title="Acquiring Deployment Lock" date="2025-12-13T16:09:32.490" /><!-- duration: 6ms -->
+          <step title="Acquired Deployment Lock" date="2025-12-13T16:09:32.547" /><!-- duration: 7ms -->
+        </step><!-- duration: 211ms -->
+      </step><!-- duration: 270ms -->
+      <step title="Outgoing response" date="2025-12-13T16:09:32.682" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 6ms -->
+    </step><!-- duration: 405ms -->
