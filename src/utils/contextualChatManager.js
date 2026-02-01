@@ -150,7 +150,13 @@ Just return your response, nothing else.`;
       return null;
 
     } catch (error) {
-      logger.error('Error generating contextual response:', error);
+      logger.error('Error generating contextual response:', error.message || error);
+      if (error.response) {
+        logger.error('API Response Error:', JSON.stringify(error.response.data, null, 2));
+      }
+      if (error.status) {
+        logger.error('HTTP Status:', error.status);
+      }
       return null;
     }
   }
@@ -191,7 +197,10 @@ Just return your response, nothing else.`;
       return response || null;
 
     } catch (error) {
-      logger.error('Error generating topic response:', error);
+      logger.error('Error generating topic response:', error.message || error);
+      if (error.response) {
+        logger.error('API Response Error:', JSON.stringify(error.response.data, null, 2));
+      }
       return null;
     }
   }

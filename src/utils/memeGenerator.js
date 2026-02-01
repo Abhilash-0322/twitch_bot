@@ -99,7 +99,13 @@ Requirements:
       }
 
     } catch (error) {
-      logger.error('Error generating meme with Groq:', error);
+      logger.error('Error generating meme with Groq:', error.message || error);
+      if (error.response) {
+        logger.error('API Response Error:', JSON.stringify(error.response.data, null, 2));
+      }
+      if (error.status) {
+        logger.error('HTTP Status:', error.status);
+      }
       return this.getFallbackMeme(username, isReturning);
     }
   }

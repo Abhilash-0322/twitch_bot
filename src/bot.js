@@ -1,6 +1,6 @@
-require('dotenv').config();
-const tmi = require('tmi.js');
 const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
+const tmi = require('tmi.js');
 const fs = require('fs');
 const Groq = require('groq-sdk');
 const logger = require('./utils/logger');
@@ -17,6 +17,14 @@ class TwitchBot {
     );
     this.memeGenerator = new MemeGenerator();
     this.contextualChat = new ContextualChatManager();
+    
+    // Initialize Groq for the bot's own AI messages
+    if (process.env.GROQ_API_KEY && process.env.GROQ_API_KEY !== 'your_groq_api_key_here') {
+      this.groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+    } else {
+      this.groq = null;
+    }
+    
     this.client = null;
     this.messageCount = 0;
     this.messageResetInterval = null;
@@ -262,6 +270,18 @@ class TwitchBot {
   }
 
   async getRandomWelcomeMessage() {
+    // Check if Groq is available
+    if (!this.groq) {
+      const fallbacks = [
+        'Welcome to the stream! 🎮',
+        'Hey everyone! Let\'s vibe! ✨',
+        'We\'re live! 🔥',
+        'What\'s up, legends? 🌟',
+        'Welcome in! 💜'
+      ];
+      return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+    }
+
     try {
       const prompt = `You are a Twitch streamer greeting your chat. Generate a super creative, fun, and unique welcome message.
 
@@ -309,7 +329,22 @@ Generate ONE unique welcome message NOW (just the message, nothing else):`;
       return message;
       
     } catch (error) {
-      logger.error('Error generating AI welcome message:', error.message);
+      console.error('===== GROQ ERROR DETAILS =====');
+      console.error('Error object:', error);
+      console.error('Error type:', typeof error);
+      console.error('Error constructor:', error?.constructor?.name);
+      logger.error('Error generating AI welcome message:');
+      logger.error('Full error:', error);
+      if (error && error.message) {
+        logger.error('Message:', error.message);
+      }
+      if (error && error.response) {
+        logger.error('API Response:', JSON.stringify(error.response.data, null, 2));
+      }
+      if (error && error.status) {
+        logger.error('HTTP Status:', error.status);
+      }
+      console.error('===== END ERROR DETAILS =====');
       
       // Fallback to simple random messages (streamer perspective)
       const fallbacks = [
