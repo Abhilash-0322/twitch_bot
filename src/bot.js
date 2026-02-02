@@ -357,7 +357,7 @@ Generate ONE unique welcome message NOW (just the message, nothing else):`;
       } catch (error) {
         logger.error('Error sending periodic message:', error);
       }
-    }, 10000); // 10 seconds
+    }, 100000); // 10 seconds
   }
 
   async start() {
